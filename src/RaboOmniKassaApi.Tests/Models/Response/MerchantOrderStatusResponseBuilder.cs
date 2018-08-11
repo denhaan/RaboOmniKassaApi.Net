@@ -49,15 +49,23 @@ namespace RaboOmniKassaApi.Tests.Models.Response
                         }
                     }
                 },
-                Signature = "b9b15090ab90a34fe32e10d757f90393775df631f4cb8e53d21d2f06f21c6f4af77ebad1cc5340731077b4d71fbb03540e8a81bd568c6bde2612e8561d8f6d07"
+                //Signature = "b9b15090ab90a34fe32e10d757f90393775df631f4cb8e53d21d2f06f21c6f4af77ebad1cc5340731077b4d71fbb03540e8a81bd568c6bde2612e8561d8f6d07"
                 //Signature = "ddad03e536719f988a46f7edaf5808446838109b1644a13cef9e0e0f74825a70df618d325f8ce6eb09d629a70b6a0728f99fb8e85f249ca76636d7c13d54b841"
             };
+            CalculateAndSetSignature(merchantOrderResponse, GetSigningKey());
             return JsonHelper.Serialize(merchantOrderResponse);
         }
 
         public static SigningKey GetSigningKey()
         {
             return new SigningKey("secret");
+        }
+
+        private static void CalculateAndSetSignature(MerchantOrderStatusResponse merchantOrderStatusResponse, SigningKey signingKey)
+        {
+            var signatureData = merchantOrderStatusResponse.GetSignatureData();
+            var preparedSignatureData = string.Join(",", signatureData);
+            merchantOrderStatusResponse.Signature = HashHelper.GetHash(HashHelper.HashType.HmacSha512, preparedSignatureData, signingKey.GetSigningData());
         }
     }
 }
