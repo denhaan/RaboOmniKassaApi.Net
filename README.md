@@ -17,8 +17,8 @@ The package for this library is available on [NuGet](https://www.nuget.org/packa
 
 ### Steps in processing Payments
 The processing of payment consists of three calls from the web shop to the Rabo
-OmniKassa, and one call from the Rabo OmniKassa to the web store. The SDK helps to
-simplify these steps. The payment steps are elaborated in the chapters below. For a more
+OmniKassa, and one call from the Rabo OmniKassa to the web store. The API helps to
+simplify these steps. The payment steps are elaborated below. For a more
 high level explanation of the steps of the payment process: see the Manual Rabo
 OmniKassa.
 
