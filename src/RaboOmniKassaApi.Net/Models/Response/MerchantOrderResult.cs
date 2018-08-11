@@ -66,7 +66,7 @@ namespace RaboOmniKassaApi.Net.Models.Response
             if (!merchantOrderResult.MerchantOrderId.Equals(MerchantOrderId)) return false;
             if (!merchantOrderResult.OmnikassaOrderId.Equals(OmnikassaOrderId)) return false;
             if (!merchantOrderResult.OrderStatus.Equals(OrderStatus)) return false;
-            if (!merchantOrderResult.OrderStatusDateTime.Equals(OrderStatusDateTime)) return false;
+            if (!merchantOrderResult.OrderStatusDateTimeRaw.Equals(OrderStatusDateTimeRaw)) return false;
             if (!merchantOrderResult.ErrorCode.Equals(ErrorCode)) return false;
             if (!merchantOrderResult.PaidAmount.Equals(PaidAmount)) return false;
             if (!merchantOrderResult.TotalAmount.Equals(TotalAmount)) return false;
@@ -81,7 +81,7 @@ namespace RaboOmniKassaApi.Net.Models.Response
                 hashCode = (hashCode * 397) ^ (MerchantOrderId != null ? MerchantOrderId.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (OmnikassaOrderId != null ? OmnikassaOrderId.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (OrderStatus != null ? OrderStatus.GetHashCode() : 0);
-                hashCode = (hashCode * 397) ^ OrderStatusDateTime.GetHashCode();
+                hashCode = (hashCode * 397) ^ (OrderStatusDateTimeRaw != null ? OrderStatusDateTimeRaw.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (ErrorCode != null ? ErrorCode.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (PaidAmount != null ? PaidAmount.GetHashCode() : 0);
                 hashCode = (hashCode * 397) ^ (TotalAmount != null ? TotalAmount.GetHashCode() : 0);
