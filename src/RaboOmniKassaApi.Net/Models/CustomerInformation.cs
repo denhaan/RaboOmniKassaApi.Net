@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using RaboOmniKassaApi.Net.Models.Signing;
 
@@ -15,7 +16,12 @@ namespace RaboOmniKassaApi.Net.Models
         public string EmailAddress { get; set; }
 
         [DataMember(Name = "dateOfBirth", EmitDefaultValue = false, IsRequired = false, Order = 2)]
-        public DateTime? DateOfBirth { get; set; }
+        public string DateOfBirthRaw { get; set; }
+        public DateTime? DateOfBirth
+        {
+            get => !string.IsNullOrWhiteSpace(DateOfBirthRaw) ? DateTime.ParseExact(DateOfBirthRaw, "dd-MM-yyyy", CultureInfo.InvariantCulture) : (DateTime?)null;
+            set => DateOfBirthRaw = value?.ToString("dd-MM-yyyy");
+        }
 
         [DataMember(Name = "gender", EmitDefaultValue = false, IsRequired = false, Order = 3)]
         public string Gender { get; set; }
@@ -31,7 +37,7 @@ namespace RaboOmniKassaApi.Net.Models
             return new List<string>
             {
                 EmailAddress,
-                DateOfBirth.HasValue ? DateOfBirth.Value.ToString("dd-MM-yyyy") : null,
+                DateOfBirthRaw,
                 Gender,
                 Initials,
                 TelephoneNumber

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using RaboOmniKassaApi.Net.Models.Signing;
 
@@ -12,7 +13,12 @@ namespace RaboOmniKassaApi.Net.Models.Request
     public class MerchantOrderRequest : MerchantOrder
     {
         [DataMember(Name = "timestamp", EmitDefaultValue = false, IsRequired = true)]
-        public DateTime Timestamp { get; set; }
+        public string TimestampRaw { get; set; }
+        public DateTime Timestamp
+        {
+            get => DateTime.ParseExact(TimestampRaw, "yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
+            set => TimestampRaw = value.ToString("yyyy-MM-ddTHH:mm:sszzz");
+        }
 
         private MerchantOrderRequest() { }
         public MerchantOrderRequest(MerchantOrder merchantOrder, SigningKey signingKey) : base(merchantOrder)
@@ -25,7 +31,7 @@ namespace RaboOmniKassaApi.Net.Models.Request
         {
             var signatureData = new List<string>
             {
-                Timestamp.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                TimestampRaw,
                 MerchantOrderId
             };
             signatureData.AddRange(Amount.GetSignatureData());

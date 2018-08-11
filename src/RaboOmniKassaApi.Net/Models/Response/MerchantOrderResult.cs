@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.Serialization;
 using RaboOmniKassaApi.Net.Models.Signing;
 
@@ -24,7 +25,12 @@ namespace RaboOmniKassaApi.Net.Models.Response
         public string OrderStatus { get; set; }
 
         [DataMember(Name = "orderStatusDateTime", EmitDefaultValue = false, IsRequired = true)]
-        public DateTime OrderStatusDateTime { get; set; }
+        public string OrderStatusDateTimeRaw { get; set; }
+        public DateTime OrderStatusDateTime
+        {
+            get => DateTime.ParseExact(OrderStatusDateTimeRaw, "yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
+            set => OrderStatusDateTimeRaw = value.ToString("yyyy-MM-ddTHH:mm:sszzz");
+        }
 
         [DataMember(Name = "errorCode", EmitDefaultValue = false, IsRequired = true)]
         public string ErrorCode { get; set; }
@@ -43,7 +49,7 @@ namespace RaboOmniKassaApi.Net.Models.Response
                 OmnikassaOrderId,
                 PoiId.ToString(),
                 OrderStatus,
-                OrderStatusDateTime.ToString("yyyy-MM-ddTHH:mm:sszzz"),
+                OrderStatusDateTimeRaw,
                 ErrorCode,
             };
             data.AddRange(PaidAmount.GetSignatureData());
