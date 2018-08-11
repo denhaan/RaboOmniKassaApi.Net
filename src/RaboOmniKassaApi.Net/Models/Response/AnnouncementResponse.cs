@@ -21,8 +21,8 @@ namespace RaboOmniKassaApi.Net.Models.Response
         public string ExpiryRaw { get; set; }
         public DateTime Expiry
         {
-            get => DateTime.ParseExact(ExpiryRaw, "yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
-            set => ExpiryRaw = value.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            get => DateTime.ParseExact(ExpiryRaw, "yyyy-MM-ddTHH:mm:ss.fffzzz", CultureInfo.InvariantCulture);
+            set => ExpiryRaw = value.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz");
         }
 
         [DataMember(Name = "eventName", EmitDefaultValue = false, IsRequired = true, Order = 4)]

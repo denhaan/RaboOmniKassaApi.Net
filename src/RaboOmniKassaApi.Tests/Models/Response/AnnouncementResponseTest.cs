@@ -14,7 +14,7 @@ namespace RaboOmniKassaApi.Tests.Models.Response
 
             Assert.AreEqual(1000, response.PoiId);
             Assert.AreEqual("MyJwt", response.Authentication);
-            Assert.AreEqual(new DateTime(1970, 1, 1), response.Expiry);
+            Assert.AreEqual("1970-01-01T00:00:00.000+02:00", response.ExpiryRaw);
             Assert.AreEqual("merchant.order.status.changed", response.EventName);
         }
 

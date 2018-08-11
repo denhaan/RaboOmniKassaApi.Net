@@ -28,8 +28,8 @@ namespace RaboOmniKassaApi.Net.Models.Response
         public string OrderStatusDateTimeRaw { get; set; }
         public DateTime OrderStatusDateTime
         {
-            get => DateTime.ParseExact(OrderStatusDateTimeRaw, "yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
-            set => OrderStatusDateTimeRaw = value.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            get => DateTime.ParseExact(OrderStatusDateTimeRaw, "yyyy-MM-ddTHH:mm:ss.fffzzz", CultureInfo.InvariantCulture);
+            set => OrderStatusDateTimeRaw = value.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz");
         }
 
         [DataMember(Name = "errorCode", EmitDefaultValue = false, IsRequired = true)]
