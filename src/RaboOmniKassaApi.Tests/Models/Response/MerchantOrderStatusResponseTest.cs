@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaboOmniKassaApi.Net.Models;
 using RaboOmniKassaApi.Net.Models.Response;
 using RaboOmniKassaApi.Net.Models.Signing;
@@ -19,7 +18,7 @@ namespace RaboOmniKassaApi.Tests.Models.Response
                 OmnikassaOrderId = "1",
                 OrderStatus = "CANCELLED",
                 ErrorCode = "666",
-                OrderStatusDateTime = new DateTime(1970, 1, 1),
+                OrderStatusDateTimeRaw = "1970-01-01T00:00:00.000+02:00",
                 PaidAmount = Money.FromDecimal("EUR", 1),
                 TotalAmount = Money.FromDecimal("EUR", 1)
             };

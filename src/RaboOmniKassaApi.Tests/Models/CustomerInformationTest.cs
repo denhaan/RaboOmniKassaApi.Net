@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RaboOmniKassaApi.Net.Helpers;
 
@@ -13,7 +12,7 @@ namespace RaboOmniKassaApi.Tests.Models
         {
             var customerInformation = CustomerInformationBuilder.MakeCompleteCustomerInformation();
             Assert.AreEqual("jan.van.veen@gmail.com", customerInformation.EmailAddress);
-            Assert.AreEqual(new DateTime(1987, 3, 20), customerInformation.DateOfBirth);
+            Assert.AreEqual("20-03-1987", customerInformation.DateOfBirthRaw);
             Assert.AreEqual("M", customerInformation.Gender);
             Assert.AreEqual("J.M.", customerInformation.Initials);
             Assert.AreEqual("0204971111", customerInformation.TelephoneNumber);

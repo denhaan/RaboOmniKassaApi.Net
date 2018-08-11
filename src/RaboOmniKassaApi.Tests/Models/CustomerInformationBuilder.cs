@@ -1,5 +1,4 @@
-﻿using System;
-using RaboOmniKassaApi.Net.Models;
+﻿using RaboOmniKassaApi.Net.Models;
 
 namespace RaboOmniKassaApi.Tests.Models
 {
@@ -10,7 +9,7 @@ namespace RaboOmniKassaApi.Tests.Models
             return new CustomerInformation
             {
                 EmailAddress = "jan.van.veen@gmail.com",
-                DateOfBirth = new DateTime(1987, 3, 20),
+                DateOfBirthRaw = "20-03-1987",
                 Gender = "M",
                 Initials = "J.M.",
                 TelephoneNumber = "0204971111"
