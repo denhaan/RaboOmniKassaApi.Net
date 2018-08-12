@@ -6,7 +6,7 @@ before_build:
 - nuget restore
 
 build:
-  project: .\src\RaboOmniKassaApi.Net.sln
+  project: RaboOmniKassaApi.Net.sln
   verbosity: minimal
   
 test_script:
