@@ -9,6 +9,12 @@ build:
   project: src\RaboOmniKassaApi.Net.sln
   verbosity: minimal
   
+test:
+  assemblies:
+    only:
+	  - src\RaboOmniKassaApi.Tests\bin\Debug\RaboOmniKassaApi.Tests.dll
+  
 test_script:
+
 - .\packages\OpenCover.4.6.519\tools\OpenCover.Console.exe -register:user "-filter:+[RaboOmniKassaApi*]*" -target:"C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\MSTest.exe" -targetargs:"/testcontainer:"".\RaboOmniKassaApi.Tests\bin\Debug\RaboOmniKassaApi.Tests.dll" -output:".\coverage.xml"
 - .\packages\Codecov.1.0.5\tools\codecov -f "coverage.xml"
