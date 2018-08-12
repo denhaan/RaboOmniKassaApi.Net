@@ -8,7 +8,7 @@ The RaboOmniKassaApi.Net library is a C# API that can be used to communicate wit
 
 |             |Build Status|Code Coverage|
 |-------------|:----------:|:-----------:|
-|**Windows**  | [![Build status](https://ci.appveyor.com/api/projects/status/h3v0kq65hrexbc26?svg=true)](https://ci.appveyor.com/project/janssenr/raboomnikassaapi-net/branch/master)||
+|**Windows**  | [![Build status](https://ci.appveyor.com/api/projects/status/h3v0kq65hrexbc26?svg=true)](https://ci.appveyor.com/project/janssenr/raboomnikassaapi-net/branch/master)|[![codecov](https://codecov.io/gh/janssenr/RaboOmniKassaApi.Net/branch/master/graph/badge.svg)](https://codecov.io/gh/janssenr/RaboOmniKassaApi.Net)|
 
 ## Supported Platforms
 - .NET Framework (4.5.1 and higher)
