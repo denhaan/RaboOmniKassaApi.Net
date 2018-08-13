@@ -2,8 +2,8 @@ language: csharp
 solution: ./src/RaboOmniKassaApi.Net.sln
 
 script:
-  - dotnet build ./src/RaboOmniKassaApi.Net.sln
-  - dotnet test ./src/RaboOmniKassaApi.Tests/RaboOmniKassaApi.Tests.csproj -c Release
+#  - dotnet build ./src/RaboOmniKassaApi.Net.sln
+#  - dotnet test ./src/RaboOmniKassaApi.Tests/RaboOmniKassaApi.Tests.csproj -c Release
   
 notifications:
   email:
