@@ -6,9 +6,9 @@ The RaboOmniKassaApi.Net library is a C# API that can be used to communicate wit
 [![Twitter URL](https://img.shields.io/badge/twitter-follow-1da1f2.svg)](https://twitter.com/janssenr)
 [![Donate](https://img.shields.io/badge/%24-donate-ff00ff.svg)](https://www.paypal.me/janssenr)
 
-|             |Build Status|Code Coverage|
-|-------------|:----------:|:-----------:|
-|**Windows**  | [![Build status](https://ci.appveyor.com/api/projects/status/h3v0kq65hrexbc26?svg=true)](https://ci.appveyor.com/project/janssenr/raboomnikassaapi-net/branch/master)|[![codecov](https://codecov.io/gh/janssenr/RaboOmniKassaApi.Net/branch/master/graph/badge.svg)](https://codecov.io/gh/janssenr/RaboOmniKassaApi.Net)|
+[![Build status](https://ci.appveyor.com/api/projects/status/h3v0kq65hrexbc26?svg=true)](https://ci.appveyor.com/project/janssenr/raboomnikassaapi-net/branch/master)
+[![Build Status](https://travis-ci.org/janssenr/RaboOmniKassaApi.Net.svg?branch=master)](https://travis-ci.org/janssenr/RaboOmniKassaApi.Net)
+[![codecov](https://codecov.io/gh/janssenr/RaboOmniKassaApi.Net/branch/master/graph/badge.svg)](https://codecov.io/gh/janssenr/RaboOmniKassaApi.Net)
 
 ## Supported Platforms
 - .NET Framework (4.5.1 and higher)
