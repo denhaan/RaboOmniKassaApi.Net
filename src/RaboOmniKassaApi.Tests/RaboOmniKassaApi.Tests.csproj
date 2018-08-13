@@ -62,7 +62,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connectors\ApiConnectorTest.cs" />
-    <Compile Include="Connectors\ApiConnectorWrapper.cs" />
     <Compile Include="Models\AddressBuilder.cs" />
     <Compile Include="Models\AddressTest.cs" />
     <Compile Include="Models\CustomerInformationBuilder.cs" />
