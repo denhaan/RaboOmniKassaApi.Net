@@ -46,7 +46,6 @@ Global
 		{15CCB110-7A21-4E91-B175-892CF91A2257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{15CCB110-7A21-4E91-B175-892CF91A2257}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15CCB110-7A21-4E91-B175-892CF91A2257}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{15CCB110-7A21-4E91-B175-892CF91A2257}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
