@@ -11,7 +11,7 @@ namespace RaboOmniKassaApi.Net.Helpers
     /// </summary>
     public static class JsonHelper
     {
-        public static string Serialize<T>(T obj, string dateTimeFormat = "yyyy-MM-ddTHH:mm:sszzz")
+        public static string Serialize<T>(T obj, string dateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fffzzz")
         {
             string retVal;
             var serializer = new DataContractJsonSerializer(obj.GetType(), new DataContractJsonSerializerSettings { DateTimeFormat = new DateTimeFormat(dateTimeFormat), UseSimpleDictionaryFormat = true });
@@ -23,7 +23,7 @@ namespace RaboOmniKassaApi.Net.Helpers
             return retVal;
         }
 
-        public static T Deserialize<T>(string json, string dateTimeFormat = "yyyy-MM-ddTHH:mm:sszzz")
+        public static T Deserialize<T>(string json, string dateTimeFormat = "yyyy-MM-ddTHH:mm:ss.fffzzz")
         {
             var obj = Activator.CreateInstance<T>();
             using (var ms = new MemoryStream(Encoding.UTF8.GetBytes(json)))

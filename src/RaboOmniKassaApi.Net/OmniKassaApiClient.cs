@@ -23,6 +23,7 @@ namespace RaboOmniKassaApi.Net
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             var tokenProvider = new InMemoryTokenProvider(refreshToken);
             if (testMode) _baseUrl += "-sandbox";
+            _baseUrl += "/";
             _connector = new ApiConnector(new HttpClientRestTemplate(_baseUrl), tokenProvider);
             _signingKey = new SigningKey(Convert.FromBase64String(signingKey));
         }

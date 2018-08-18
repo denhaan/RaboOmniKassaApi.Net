@@ -67,7 +67,7 @@ namespace RaboOmniKassaApi.Tests.Models
         [TestMethod]
         public void TestJsonSerialize()
         {
-            var expectedJson = "{\"id\":\"15\",\"name\":\"Name\",\"description\":\"Description\",\"quantity\":1,\"amount\":{\"currency\":\"EUR\",\"amount\":100},\"tax\":{\"currency\":\"EUR\",\"amount\":50},\"category\":1,\"vatCategory\":1}";
+            var expectedJson = "{\"id\":\"15\",\"name\":\"Name\",\"description\":\"Description\",\"quantity\":1,\"amount\":{\"currency\":\"EUR\",\"amount\":100},\"tax\":{\"currency\":\"EUR\",\"amount\":50},\"category\":\"DIGITAL\",\"vatCategory\":\"2\"}";
             var orderItem = OrderItemBuilder.MakeCompleteOrderItem();
             var actualJson = JsonHelper.Serialize(orderItem);
 
@@ -77,7 +77,7 @@ namespace RaboOmniKassaApi.Tests.Models
         [TestMethod]
         public void TestJsonSerializeWithoutOptionalFields()
         {
-            var expectedJson = "{\"name\":\"Name\",\"description\":\"Description\",\"quantity\":1,\"amount\":{\"currency\":\"EUR\",\"amount\":100},\"category\":1}";
+            var expectedJson = "{\"name\":\"Name\",\"description\":\"Description\",\"quantity\":1,\"amount\":{\"currency\":\"EUR\",\"amount\":100},\"category\":\"DIGITAL\"}";
             var orderItem = OrderItemBuilder.MakeOrderItemWithoutOptionals();
             var actualJson = JsonHelper.Serialize(orderItem);
 

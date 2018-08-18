@@ -16,8 +16,8 @@ namespace RaboOmniKassaApi.Net.Models.Request
         public string TimestampRaw { get; set; }
         public DateTime Timestamp
         {
-            get => DateTime.ParseExact(TimestampRaw, "yyyy-MM-ddTHH:mm:sszzz", CultureInfo.InvariantCulture);
-            set => TimestampRaw = value.ToString("yyyy-MM-ddTHH:mm:sszzz");
+            get => DateTime.ParseExact(TimestampRaw, "yyyy-MM-ddTHH:mm:ss.fffzzz", CultureInfo.InvariantCulture);
+            set => TimestampRaw = value.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz");
         }
 
         private MerchantOrderRequest() { }
@@ -46,13 +46,13 @@ namespace RaboOmniKassaApi.Net.Models.Request
             {
                 signatureData.AddRange(ShippingDetail.GetSignatureData());
             }
-            if (PaymentBrand.HasValue)
+            if (!string.IsNullOrWhiteSpace(PaymentBrandString))
             {
-                signatureData.Add(PaymentBrand.Value.ToFriendlyString());
+                signatureData.Add(PaymentBrandString);
             }
-            if (PaymentBrandForce.HasValue)
+            if (!string.IsNullOrWhiteSpace(PaymentBrandForceString))
             {
-                signatureData.Add(PaymentBrandForce.Value.ToFriendlyString());
+                signatureData.Add(PaymentBrandForceString);
             }
             if (CustomerInformation != null)
             {

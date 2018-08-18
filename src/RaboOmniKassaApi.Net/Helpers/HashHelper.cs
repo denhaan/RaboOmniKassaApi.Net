@@ -11,7 +11,13 @@ namespace RaboOmniKassaApi.Net.Helpers
     {
         public enum HashType
         {
+            HmacSha256,
             HmacSha512
+        }
+
+        public static string GetHash(HashType hashType, string s, string key)
+        {
+            return GetHash(hashType, s, Encoding.UTF8.GetBytes(key));
         }
 
         public static string GetHash(HashType hashType, string s, byte[] key)
@@ -19,6 +25,9 @@ namespace RaboOmniKassaApi.Net.Helpers
             string str;
             switch (hashType)
             {
+                case HashType.HmacSha256:
+                    str = GetHmacSha256(s, key);
+                    break;
                 case HashType.HmacSha512:
                     str = GetHmacSha512(s, key);
                     break;
@@ -28,12 +37,22 @@ namespace RaboOmniKassaApi.Net.Helpers
             return str;
         }
 
+        private static string GetHmacSha256(string s, byte[] key)
+        {
+            byte[] hash;
+            using (var hma = new HMACSHA256(key))
+            {
+                hash = hma.ComputeHash(Encoding.UTF8.GetBytes(s));
+            }
+            return ByteToString(hash);
+        }
+
         private static string GetHmacSha512(string s, byte[] key)
         {
             byte[] hash;
-            using (var hmacsha256 = new HMACSHA512(key))
+            using (var hma = new HMACSHA512(key))
             {
-                hash = hmacsha256.ComputeHash(Encoding.UTF8.GetBytes(s));
+                hash = hma.ComputeHash(Encoding.UTF8.GetBytes(s));
             }
             return ByteToString(hash);
         }

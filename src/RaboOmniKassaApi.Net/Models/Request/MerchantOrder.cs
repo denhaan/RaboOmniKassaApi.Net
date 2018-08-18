@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 using RaboOmniKassaApi.Net.Models.Signing;
 
 namespace RaboOmniKassaApi.Net.Models.Request
@@ -36,11 +37,21 @@ namespace RaboOmniKassaApi.Net.Models.Request
         [DataMember(Name = "merchantReturnURL", EmitDefaultValue = false, IsRequired = true, Order = 9)]
         public string MerchantReturnUrl { get; set; }
 
-        [DataMember(Name = "paymentBrand", EmitDefaultValue = false, IsRequired = false, Order = 10)]
         public PaymentBrand? PaymentBrand { get; set; }
+        [DataMember(Name = "paymentBrand", EmitDefaultValue = false, IsRequired = false, Order = 10)]
+        public string PaymentBrandString
+        {
+            get { return PaymentBrand.HasValue ? PaymentBrand.Value.ToFriendlyString() : null; }
+            set { PaymentBrand = value != null ? (PaymentBrand)Enum.Parse(typeof(PaymentBrand), value) : (PaymentBrand?)null; }
+        }
 
-        [DataMember(Name = "paymentBrandForce", EmitDefaultValue = false, IsRequired = false, Order = 11)]
         public PaymentBrandForce? PaymentBrandForce { get; set; }
+        [DataMember(Name = "paymentBrandForce", EmitDefaultValue = false, IsRequired = false, Order = 11)]
+        public string PaymentBrandForceString
+        {
+            get { return PaymentBrandForce.HasValue ? PaymentBrandForce.Value.ToFriendlyString() : null; }
+            set { PaymentBrandForce = value != null ? (PaymentBrandForce)Enum.Parse(typeof(PaymentBrandForce), value) : (PaymentBrandForce?)null; }
+        }
 
         public MerchantOrder() { }
 

@@ -35,7 +35,7 @@ namespace RaboOmniKassaApi.Net.Connectors
         public void SetAccessToken(AccessToken accessToken)
         {
             SetValue(AccessToken, accessToken.Token);
-            SetValue(AccessTokenValidUntil, accessToken.ValidUntil.ToString("yyyy-MM-ddTHH:mm:sszzz"));
+            SetValue(AccessTokenValidUntil, accessToken.ValidUntil.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
             SetValue(AccessTokenDuration, accessToken.DurationInMilliseconds.ToString());
             Flush();
         }

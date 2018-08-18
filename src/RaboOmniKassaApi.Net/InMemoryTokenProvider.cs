@@ -17,7 +17,7 @@ namespace RaboOmniKassaApi.Net
 
         public override string GetValue(string key)
         {
-            return _map["key"];
+            return _map[key];
         }
 
         public override void SetValue(string key, string value)

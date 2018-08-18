@@ -86,7 +86,7 @@ namespace RaboOmniKassaApi.Tests.Connectors
 
             //Verify that the new access token is stored in the token provider
             _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessToken, _secondAccessToken.Token));
-            _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessTokenValidUntil, _secondAccessToken.ValidUntil.ToString("yyyy-MM-ddTHH:mm:sszzz")));
+            _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessTokenValidUntil, _secondAccessToken.ValidUntil.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz")));
             _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessTokenDuration, _secondAccessToken.DurationInMilliseconds.ToString()));
         }
 
@@ -107,7 +107,7 @@ namespace RaboOmniKassaApi.Tests.Connectors
 
             //Verify that the new access token is stored in the token provider
             _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessToken, _secondAccessToken.Token));
-            _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessTokenValidUntil, _secondAccessToken.ValidUntil.ToString("yyyy-MM-ddTHH:mm:sszzz")));
+            _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessTokenValidUntil, _secondAccessToken.ValidUntil.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz")));
             _tokenProvider.Verify(v => v.SetValue(TokenProvider.AccessTokenDuration, _secondAccessToken.DurationInMilliseconds.ToString()));
         }
 
@@ -130,7 +130,7 @@ namespace RaboOmniKassaApi.Tests.Connectors
             }
 
             _tokenProvider.Setup(s => s.GetValue(TokenProvider.AccessToken)).Returns(token);
-            _tokenProvider.Setup(s => s.GetValue(TokenProvider.AccessTokenValidUntil)).Returns(validUntil.ToString("yyyy-MM-ddTHH:mm:sszzz"));
+            _tokenProvider.Setup(s => s.GetValue(TokenProvider.AccessTokenValidUntil)).Returns(validUntil.ToString("yyyy-MM-ddTHH:mm:ss.fffzzz"));
             _tokenProvider.Setup(s => s.GetValue(TokenProvider.AccessTokenDuration)).Returns(durationInMilliseconds.ToString);
         }
 

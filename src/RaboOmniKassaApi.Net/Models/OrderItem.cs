@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using RaboOmniKassaApi.Net.Models.Signing;
 
@@ -28,11 +29,21 @@ namespace RaboOmniKassaApi.Net.Models
         [DataMember(Name = "tax", EmitDefaultValue = false, IsRequired = false, Order = 6)]
         public Money Tax { get; set; }
 
-        [DataMember(Name = "category", EmitDefaultValue = false, IsRequired = true, Order = 7)]
         public ProductType? Category { get; set; }
+        [DataMember(Name = "category", EmitDefaultValue = false, IsRequired = true, Order = 7)]
+        public string CategoryString
+        {
+            get { return Category.HasValue ? Category.Value.ToFriendlyString() : null; }
+            set { Category = value != null ? (ProductType)Enum.Parse(typeof(ProductType), value) : (ProductType?)null; }
+        }
 
-        [DataMember(Name = "vatCategory", EmitDefaultValue = false, IsRequired = false, Order = 8)]
         public VatCategory? VatCategory { get; set; }
+        [DataMember(Name = "vatCategory", EmitDefaultValue = false, IsRequired = false, Order = 8)]
+        public string VatCategoryString
+        {
+            get { return VatCategory.HasValue ? VatCategory.Value.ToFriendlyString() : null; }
+            set { VatCategory = value != null ? (VatCategory)Enum.Parse(typeof(VatCategory), value) : (VatCategory?)null; }
+        }
 
         public List<string> GetSignatureData()
         {
@@ -46,10 +57,10 @@ namespace RaboOmniKassaApi.Net.Models
             data.Add(Quantity.ToString());
             data.AddRange(Amount.GetSignatureData());
             data.AddRange(Tax != null ? Tax.GetSignatureData() : new List<string> { null });
-            data.Add(Category.HasValue ? Category.Value.ToFriendlyString(): null);
-            if (VatCategory.HasValue)
+            data.Add(!string.IsNullOrWhiteSpace(CategoryString) ? CategoryString : null);
+            if (!string.IsNullOrWhiteSpace(VatCategoryString))
             {
-                data.Add(VatCategory.Value.ToFriendlyString());
+                data.Add(VatCategoryString);
             }
             return data;
         }
